@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
+  <title>add</title>
+
+
+</head>
+<body xmlns:th="http://www.w3.org/1999/xhtml">
+<div>
+  <h2>New Customer</h2>
+  <div>
+    <div>
+      <form action="#" th:action="@{/api/addcustomer}" method="post">
+        <div class="row">
+          <div >
+            <label for="name">Name</label>
+            <input type="text"  id="name" name="name" placeholder="Name">
+          </div>
+          <div >
+            <label for="surname">Surname</label>
+            <input type="text" name="surname" id="surname" placeholder="Surname">
+          </div>
+          <div >
+            <label for="email">Email</label>
+            <input type="text" name="email" id="email" placeholder="Email">
+          </div>
+        </div>
+        <div class="row">
+          <div >
+            <input type="submit" value="Add Customer">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+</html>

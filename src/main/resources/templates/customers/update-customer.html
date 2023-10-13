@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
+  <title>update</title>
+
+
+</head>
+
+
+<body xmlns:th="http://www.w3.org/1999/xhtml">
+<div>
+  <h2>Update Customer</h2>
+  <div class="row">
+    <div>
+      <form th:action="@{/api/update/{id}(id=${customer.id})}" th:object="${customer}" method="post">
+        <div class="row">
+          <div>
+            <label  >Name</label>
+            <input type="text" th:value="${customer.name}" name="name" placeholder="Name">
+          </div>
+          <div>
+            <label  >Surname</label>
+            <input type="text" th:value="${customer.surname}" name="surname" placeholder="Name">
+          </div>
+          <div>
+            <label  >Email</label>
+            <input type="text" th:value="${customer.email}" name="email" placeholder="Email">
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mt-5">
+            <input type="submit" class="btn btn-primary" value="Update Customer">
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0" />
+  <title>Blog</title>
+
+
+</head>
+<body xmlns:th="http://www.w3.org/1999/xhtml">
+<div th:switch="${customers}">
+  <div class="row">
+    <div>
+      <h2 th:case="null">No Customers.</h2>
+      <div th:case="*">
+        <h2>Customers</h2>
+        <table border="1">
+          <thead>
+          <tr>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Email</th>
+            <th>Edit</th>
+            <th>Delete</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr th:each="customer : ${customers}">
+            <td th:text="${customer.name}"></td>
+            <td th:text="${customer.surname}"></td>
+            <td th:text="${customer.email}"></td>
+            <td>
+              <a th:href="@{/api/edit/{id}(id=${customer.id})}">EDIT</a>
+            </td>
+            <td>
+              <a th:href="@{/api/delete/{id}(id=${customer.id})}">DELETE</a>
+            </td>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <p>
+        <a href="/api/new">Add Customer</a>
+      </p>
+    </div>
+  </div>
+</div>
+</body>
+</html>
